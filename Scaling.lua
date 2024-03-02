@@ -28,6 +28,12 @@ function Scale:OnInitialize()
 	self:SetEnabledState(Mapster:GetModuleEnabled(MODNAME))
 end
 
+local function OnMouseWheel(self, delta)
+	local scale = WorldMapFrame:GetScale()
+	scale = scale + (delta * 0.3)
+	WorldMapFrame:SetScale(scale)
+end
+
 function Scale:OnEnable()
 	if not scaler then
 		scaler = WorldMapPositioningGuide:CreateTexture(nil, "OVERLAY")
@@ -68,6 +74,8 @@ function Scale:OnEnable()
 	end
 	scaler:Show()
 	mousetracker:Show()
+	WorldMapFrame:EnableMouseWheel(true)
+	WorldMapFrame:SetScript("OnMouseWheel", OnMouseWheel)
 end
 
 function Scale:OnDisable()
@@ -92,7 +100,7 @@ function OnUpdate(self)
 	local scale = GetScaleDistance()/SOS.dist*SOS.scale
 	if scale < .2 then -- clamp min and max scale
 		scale = .2
-	elseif scale > 1.5 then 
+	elseif scale > 1.5 then
 		scale = 1.5
 	end
 	WorldMapFrame:SetScale(scale)
