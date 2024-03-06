@@ -31,6 +31,13 @@ end
 local function OnMouseWheel(self, delta)
 	local scale = WorldMapFrame:GetScale()
 	scale = scale + (delta * 0.3)
+
+	-- Set the minimum scale to 0.5
+	local minScale = 0.3
+	if scale < minScale then
+		scale = minScale
+	end
+
 	WorldMapFrame:SetScale(scale)
 end
 
