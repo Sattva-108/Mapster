@@ -4,6 +4,9 @@ https://www.curseforge.com/wow/addons/mapster
 ## Support
 - Support my development on **[Boosty](https://boosty.to/sattva108)**
 
+## Download
+- [**Latest version**](https://github.com/Sattva-108/Mapster-3.3.5-WoTLK/archive/refs/heads/master.zip)
+
 ## What's new?
 - Added mousewheel zooming to the map.
 
